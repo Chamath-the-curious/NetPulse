@@ -7,6 +7,7 @@ import domain.AdapterStat;
 import domain.DailyStat;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
 public class NetworkReader {
 
     private static ObjectMapper mapper = JsonConfig.MAPPER;
+    private static final Logger logger = Logger.getLogger(UsageRecorder.class.getName());
 
 
     public static Optional<DailyStat> readPerAdapter() {
@@ -48,9 +50,9 @@ public class NetworkReader {
 
             return Optional.of(new DailyStat(stats));
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "IO Exception: ", e);
+            return Optional.empty();
         }
     }
 }
