@@ -1,7 +1,6 @@
 import domain.DailyStat;
-import logic.NetworkReader;
-import logic.RecordReader;
-import logic.UsageRecorder;
+import util.NetworkReader;
+import util.UsageRecorder;
 
 import java.util.Optional;
 import java.util.concurrent.Executors;

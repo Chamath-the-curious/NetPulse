@@ -1,4 +1,4 @@
-package logic;
+package util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.DailyStat;
