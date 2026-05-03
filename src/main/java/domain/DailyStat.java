@@ -7,6 +7,8 @@ public class DailyStat {
     private LocalDate date;
     private List<AdapterStat> adapterStats;
 
+    public DailyStat() {}
+
     public DailyStat(List<AdapterStat> adapterStats) {
         date = LocalDate.now();
         this.adapterStats = adapterStats;
