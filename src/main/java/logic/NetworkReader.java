@@ -9,12 +9,16 @@ import domain.DailyStat;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class NetworkReader {
 
     private static ObjectMapper mapper = JsonConfig.MAPPER;
 
-    public static DailyStat readPerAdapter() {
+
+    public static Optional<DailyStat> readPerAdapter() {
         try {
             ProcessBuilder pb = new ProcessBuilder(
                     "powershell",
@@ -42,7 +46,7 @@ public class NetworkReader {
                     new TypeReference<List<AdapterStat>>() {}
             );
 
-            return new DailyStat(stats);
+            return Optional.of(new DailyStat(stats));
 
         } catch (Exception e) {
             e.printStackTrace();
