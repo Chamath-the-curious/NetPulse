@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 public class DataHandler  {
 
-    private static final Logger logger = Logger.getLogger(UsageRecorder.class.getName());
+    private static final Logger logger = Logger.getLogger(DataHandler.class.getName());
 
     public void execute() {
         Optional<DailyStat> statToBeRecordedOpt = NetworkReader.readPerAdapter();

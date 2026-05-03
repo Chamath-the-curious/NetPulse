@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class NetworkReader {
 
     private static ObjectMapper mapper = JsonConfig.MAPPER;
-    private static final Logger logger = Logger.getLogger(UsageRecorder.class.getName());
+    private static final Logger logger = Logger.getLogger(NetworkReader.class.getName());
 
 
     public static Optional<DailyStat> readPerAdapter() {

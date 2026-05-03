@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class RecordReader {
 
     private static ObjectMapper mapper = JsonConfig.MAPPER;
-    private static final Logger logger = Logger.getLogger(UsageRecorder.class.getName());
+    private static final Logger logger = Logger.getLogger(RecordReader.class.getName());
 
     public static Optional<DailyStat> read(LocalDate date) {
         File file = new File(Paths.DATA_DIR, date + ".json");
