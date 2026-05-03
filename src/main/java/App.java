@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class App {
     public static void main(String[] args) {
 
-        ScheduledExecutorService scheduer =
+        ScheduledExecutorService scheduler =
                 Executors.newScheduledThreadPool(1);
 
         Runnable task = () -> {
@@ -20,6 +20,6 @@ public class App {
             UsageRecorder.record(stat);
         };
 
-        scheduer.scheduleAtFixedRate(task, 0, 1, TimeUnit.HOURS);
+        scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.HOURS);
     }
 }
