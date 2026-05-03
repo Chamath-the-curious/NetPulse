@@ -1,9 +1,9 @@
 package logic;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import config.JsonConfig;
+import util.JsonConfig;
 import domain.DailyStat;
-import config.Paths;
+import util.Paths;
 
 import java.io.File;
 
