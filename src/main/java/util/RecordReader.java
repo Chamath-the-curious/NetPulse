@@ -29,7 +29,6 @@ public class RecordReader {
             return Optional.of(mapper.readValue(file, DailyStat.class));
 
         } catch (FileNotFoundException e) {
-            logger.log(Level.SEVERE, "File not found for date: " + date);
             return Optional.empty();
 
         } catch (IOException e) {
