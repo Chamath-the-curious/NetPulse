@@ -22,7 +22,7 @@ public class UsageRecorder {
             // create directory if it doesn't exist
             boolean fileNotExists = file.getParentFile().mkdirs();
 
-            if (fileNotExists) {
+            if (!file.exists()) {
                 logger.log(Level.INFO, file.getName() + " created");
             }
 
