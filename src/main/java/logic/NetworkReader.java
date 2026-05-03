@@ -11,7 +11,7 @@ import java.util.List;
 
 public class NetworkReader {
 
-    private static ObjectMapper mapper;
+    private static ObjectMapper mapper = new ObjectMapper();
 
     public static DailyStat readPerAdapter() {
         try {
@@ -19,7 +19,7 @@ public class NetworkReader {
                     "powershell",
                     "-Command",
                     "Get-NetAdapterStatistics | " +
-                            "Select name,receivedBytes,sendBytes | " +
+                            "Select name,receivedBytes,sentBytes | " +
                             "ConvertTo-Json"
             );
 
