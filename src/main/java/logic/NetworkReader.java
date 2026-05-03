@@ -2,7 +2,7 @@ package logic;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import util.JsonConfig;
+import Config.JsonConfig;
 import domain.AdapterStat;
 import domain.DailyStat;
 
