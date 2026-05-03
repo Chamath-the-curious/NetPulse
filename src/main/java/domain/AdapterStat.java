@@ -29,8 +29,12 @@ public class AdapterStat {
         this.sentBytes = sentBytes;
     }
 
+    public long calculateTotalUsage() {
+        return receivedBytes + sentBytes;
+    }
+
     @Override
     public String toString() {
-        return "name: " + name + "\ntotal usage: " + ( sentBytes + receivedBytes) + "\n";
+        return "name: " + name + "\ntotal usage: " + calculateTotalUsage() + "\n";
     }
 }
