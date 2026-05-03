@@ -20,7 +20,11 @@ public class UsageRecorder {
         try {
             File file = new File(Paths.DATA_DIR, stat.getDate() + ".json");
             // create directory if it doesn't exist
-            file.getParentFile().mkdirs();
+            boolean fileExists = file.getParentFile().mkdirs();
+
+            if (fileExists) {
+                logger.log(Level.INFO, file.getName() + " created");
+            }
 
             mapper.writerWithDefaultPrettyPrinter()
                     .writeValue(file, stat);
