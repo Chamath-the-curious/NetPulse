@@ -1,4 +1,5 @@
 import domain.DailyStat;
+import logic.DataHandler;
 import util.NetworkReader;
 import util.UsageRecorder;
 
@@ -19,11 +20,12 @@ public class App {
         ScheduledExecutorService scheduler =
                 Executors.newScheduledThreadPool(1);
 
+        DataHandler dataHandler = new DataHandler();
+
         Runnable task = () -> {
             logger.log(Level.INFO, "Running task at: " + java.time.LocalDate.now());
 
-            Optional<DailyStat> statOptional = NetworkReader.readPerAdapter();
-            statOptional.ifPresent(UsageRecorder::record);
+            dataHandler.execute();
         };
 
         scheduler.scheduleAtFixedRate(task, 0, 1, TimeUnit.HOURS);
