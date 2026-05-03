@@ -19,4 +19,9 @@ public class DailyStat {
     public void setAdapterStats(List<AdapterStat> adapterStats) {
         this.adapterStats = adapterStats;
     }
+
+    @Override
+    public String toString() {
+        return "Date: " + date + "\n" + adapterStats.toString();
+    }
 }

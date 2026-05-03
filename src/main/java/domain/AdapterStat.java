@@ -28,4 +28,9 @@ public class AdapterStat {
     public void setSentBytes(long sentBytes) {
         this.sentBytes = sentBytes;
     }
+
+    @Override
+    public String toString() {
+        return "name: " + name + "\ntotal usage: " + ( sentBytes + receivedBytes) + "\n";
+    }
 }
