@@ -1,9 +1,9 @@
 package util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import Config.JsonConfig;
+import config.JsonConfig;
 import domain.DailyStat;
-import Config.Paths;
+import config.Paths;
 
 import java.io.File;
 import java.io.IOException;

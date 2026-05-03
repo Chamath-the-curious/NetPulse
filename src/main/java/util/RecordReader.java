@@ -2,8 +2,8 @@ package util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.DailyStat;
-import Config.JsonConfig;
-import Config.Paths;
+import config.JsonConfig;
+import config.Paths;
 
 import java.io.File;
 import java.io.FileNotFoundException;
