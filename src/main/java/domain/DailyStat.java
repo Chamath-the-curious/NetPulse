@@ -24,6 +24,13 @@ public class DailyStat {
         return date;
     }
 
+    public long calculateTotalUsageByTheDate() {
+        return adapterStats.stream()
+                .map(AdapterStat::calculateTotalUsageByAdapter)
+                .mapToLong(Long::longValue)
+                .sum();
+    }
+
     @Override
     public String toString() {
         return "Date: " + date + "\n" + adapterStats.toString();
