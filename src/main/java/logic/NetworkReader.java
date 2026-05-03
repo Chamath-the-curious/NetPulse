@@ -2,6 +2,7 @@ package logic;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import config.JsonConfig;
 import domain.AdapterStat;
 import domain.DailyStat;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class NetworkReader {
 
-    private static ObjectMapper mapper = new ObjectMapper();
+    private static ObjectMapper mapper = JsonConfig.MAPPER;
 
     public static DailyStat readPerAdapter() {
         try {
