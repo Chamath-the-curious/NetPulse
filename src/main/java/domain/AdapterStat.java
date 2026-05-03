@@ -1,6 +1,4 @@
-package core;
-
-import java.time.LocalDate;
+package domain;
 
 public class AdapterStat {
     private String name;
