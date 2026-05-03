@@ -20,9 +20,9 @@ public class UsageRecorder {
         try {
             File file = new File(Paths.DATA_DIR, stat.getDate() + ".json");
             // create directory if it doesn't exist
-            boolean fileExists = file.getParentFile().mkdirs();
+            boolean fileNotExists = file.getParentFile().mkdirs();
 
-            if (fileExists) {
+            if (fileNotExists) {
                 logger.log(Level.INFO, file.getName() + " created");
             }
 
