@@ -14,10 +14,9 @@ public class RecordCommand implements Runnable {
 
     @Override
     public void run() {
-        DataHandler dataHandler = new DataHandler();
 
         try {
-            dataHandler.execute();
+            DataHandler.execute();
             logger.info("Data usage logged for: " + LocalDateTime.now());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Error: ", e);

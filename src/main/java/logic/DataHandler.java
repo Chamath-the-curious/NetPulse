@@ -18,7 +18,7 @@ public class DataHandler  {
 
     private static final Logger logger = Logger.getLogger(DataHandler.class.getName());
 
-    public void execute() {
+    public static void execute() {
         Optional<DailyStat> statToBeRecordedOpt = NetworkReader.readPerAdapter();
         Optional<DailyStat> recordedTodayStatOpt = RecordReader.read(LocalDate.now());
 
