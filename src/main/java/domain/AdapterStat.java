@@ -10,7 +10,7 @@ public class AdapterStat {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.replaceAll("\\s*\\(.*?\\)", "");;
     }
 
     public long getReceivedBytes() {
