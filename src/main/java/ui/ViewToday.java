@@ -3,7 +3,6 @@ package ui;
 import domain.AdapterStat;
 import domain.DailyStat;
 import domain.DataAmount;
-import logic.DataHandler;
 import util.RecordReader;
 import util.UnitConverter;
 
@@ -12,9 +11,9 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class TodayView {
+public class ViewToday {
 
-    private static final Logger logger = Logger.getLogger(TodayView.class.getName());
+    private static final Logger logger = Logger.getLogger(ViewToday.class.getName());
 
     public static void view() {
 
