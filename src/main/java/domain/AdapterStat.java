@@ -5,6 +5,8 @@ public class AdapterStat {
     private long receivedBytes;
     private long sentBytes;
 
+    public AdapterStat() {}
+
     public String getName() {
         return name;
     }
