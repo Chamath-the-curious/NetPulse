@@ -1,0 +1,14 @@
+[
+  {
+    "name":"domain.AdapterStat",
+    "allDeclaredConstructors":true,
+    "allDeclaredMethods":true,
+    "allDeclaredFields":true
+  },
+  {
+    "name":"domain.DailyStat",
+    "allDeclaredConstructors":true,
+    "allDeclaredMethods":true,
+    "allDeclaredFields":true
+  }
+]
