@@ -27,10 +27,10 @@ public class ViewToday {
 
         DailyStat stat = recordedTodayStatOpt.get();
 
-        System.out.println("Today's data usage");
+        System.out.println("\tToday's data usage");
         for (AdapterStat adapterStat : stat.getAdapterStats()) {
             DataAmount dataAmountByAdapter = UnitConverter.convert(adapterStat.calculateTotalUsageByAdapter());
-            System.out.println("\t" + adapterStat.getName() + "\t" + dataAmountByAdapter);
+            System.out.println("    " + adapterStat.getName() + "\t" + dataAmountByAdapter);
         }
 
         DataAmount dataAmountByTheDay = UnitConverter.convert(stat.calculateTotalUsageByTheDate());
