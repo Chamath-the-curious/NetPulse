@@ -6,7 +6,8 @@ import picocli.CommandLine.Command;
         name = "netpulse",
         subcommands = {
                 RecordCommand.class,
-                TodayCommand.class
+                TodayCommand.class,
+                DailyUsageCommand.class
         }
 )
 public class NetPulseCommand implements Runnable {
