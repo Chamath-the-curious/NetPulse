@@ -37,4 +37,12 @@ public class RecordReader {
 
         }
     }
+
+    public static DailyStat read(File file) {
+        try {
+            return mapper.readValue(file, DailyStat.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
