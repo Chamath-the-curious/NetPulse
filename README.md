@@ -1,0 +1,89 @@
+# NetPulse
+
+NetPulse is a lightweight Java CLI application designed to track and monitor your network usage on Windows. It provides a simple way to record daily data consumption and view historical usage directly from your terminal.
+
+## Features
+
+- **Daily Tracking:** Records total bytes sent and received across all network adapters.
+- **Reboot Resilient:** Uses a delta-based accumulation algorithm to accurately track usage even if PowerShell counters reset after a system reboot.
+- **Historical View:** Quickly see how much data you've used today or view a summary of previous days.
+- **Native Performance:** Built with GraalVM Native Image for fast startup and zero-dependency execution.
+
+## Prerequisites
+
+- **OS:** Windows (Required for PowerShell `Get-NetAdapterStatistics` integration).
+- **Java:** Java 25 or higher (to build from source).
+- **GraalVM:** (Optional) For generating a native executable.
+
+## Installation
+
+### Build from Source
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/NetPulse.git
+   cd NetPulse
+   ```
+
+2. Build the JAR using Maven:
+   ```bash
+   ./mvnw clean package
+   ```
+
+### Generate Native Image (Recommended)
+
+To create a fast, standalone executable:
+```bash
+./mvnw client:build -Pnative
+```
+The executable will be generated in the `target/` directory.
+
+## Usage
+
+NetPulse uses a subcommand-based CLI structure.
+
+### 1. Record Usage
+Logs the current network usage. It is recommended to run this periodically (e.g., via Task Scheduler) to ensure accurate tracking.
+```bash
+netpulse record
+```
+
+### 2. View Today's Usage
+Displays the total data consumed since the start of the current day.
+```bash
+netpulse today
+```
+
+### 3. View Historical Usage
+Shows a summary of daily usage for all recorded dates.
+```bash
+netpulse daily-usage
+```
+
+## How it Works
+
+NetPulse queries network statistics via PowerShell. Since Windows network counters reset to zero every time the system reboots, NetPulse implements a **Delta-Based Accumulation** logic:
+
+1. It reads the current raw counters from the system.
+2. It compares the current raw value against the `lastRawValue` stored in your daily record.
+3. If `current < last`, it detects a reboot and treats the current raw value as the delta.
+4. It adds the calculated delta to your `accumulatedBytes` for the day.
+
+This ensures that your daily total is always accurate, regardless of how many times you restart your PC.
+
+## Data Storage
+
+Usage records are stored as JSON files in your home directory:
+`~/Documents/NetPulse/YYYY-MM-DD.json`
+
+## Technologies Used
+
+- **Java 25**
+- **Picocli:** For the CLI framework.
+- **Jackson:** For JSON serialization/deserialization.
+- **Maven:** For build automation.
+- **GraalVM:** For native image compilation.
+
+## License
+
+[MIT](LICENSE)
