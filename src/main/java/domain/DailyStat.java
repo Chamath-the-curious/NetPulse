@@ -14,10 +14,6 @@ public class DailyStat {
         date = LocalDate.now();
     }
 
-    public void updateAccumulatedBytes(long delta) {
-        accumulatedBytes += delta;
-    }
-
     public LocalDate getDate() {
         return date;
     }
