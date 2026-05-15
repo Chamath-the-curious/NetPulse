@@ -78,17 +78,6 @@ Shows a summary of daily usage for all recorded dates.
 netpulse daily-usage
 ```
 
-## How it Works
-
-NetPulse queries network statistics via PowerShell. Since Windows network counters reset to zero every time the system reboots, NetPulse implements a **Delta-Based Accumulation** logic:
-
-1. It reads the current raw counters from the system.
-2. It compares the current raw value against the `lastRawValue` stored in your daily record.
-3. If `current < last`, it detects a reboot and treats the current raw value as the delta.
-4. It adds the calculated delta to your `accumulatedBytes` for the day.
-
-This ensures that your daily total is always accurate, regardless of how many times you restart your PC.
-
 ## Data Storage
 
 Usage records are stored as JSON files in your home directory:
