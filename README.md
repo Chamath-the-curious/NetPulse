@@ -17,6 +17,23 @@ NetPulse is a lightweight Java CLI application designed to track and monitor you
 
 ## Installation
 
+### Quick Start (Recommended)
+
+If you just want to use the tool without building it from source:
+
+1.  **Download:** Go to the [GitHub Releases](https://github.com/yourusername/NetPulse/releases) page and download the latest `netpulse.exe`.
+2.  **Setup Folder:** Create a folder for your CLI tools (e.g., `C:\tools\netpulse`) and move the `.exe` there.
+3.  **Add to PATH:**
+    *   Open the **Start Search**, type "env", and select **Edit the system environment variables**.
+    *   Click **Environment Variables** in the Bottom Right.
+    *   Under **System variables**, find the **Path** variable and click **Edit**.
+    *   Click **New** and add the path to your folder (e.g., `C:\tools\netpulse`).
+    *   Click **OK** on all windows.
+4.  **Verify:** Open a new PowerShell or CMD window and type:
+    ```bash
+    netpulse --help
+    ```
+
 ### Build from Source
 
 1. Clone the repository:
