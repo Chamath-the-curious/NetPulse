@@ -30,6 +30,7 @@ If you just want to use the tool without building it from source:
     *   Click **New** and add the path to your folder (e.g., `C:\tools\netpulse`).
     *   Click **OK** on all windows.
 4.  **Verify:** Open a new PowerShell or CMD window and type:
+
     ```bash
     netpulse --help
     ```
