@@ -38,7 +38,7 @@ public class ViewAll {
 
         System.out.println("\tDaily Usage");
         for (DailyStat dailyStat : records) {
-            DataAmount dataAmount = UnitConverter.convert(dailyStat.calculateTotalUsageByTheDate());
+            DataAmount dataAmount = UnitConverter.convert(dailyStat.getAccumulatedBytes());
             System.out.println("    " + dailyStat.getDate().getMonth() + "-" + dailyStat.getDate().getDayOfMonth() + "\t" + dataAmount);
         }
     }

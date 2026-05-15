@@ -32,12 +32,15 @@ public class DataHandler  {
         // record new usage only if it is higher than recorded usage
         recordedTodayStatOpt.ifPresentOrElse(
                 recordedTodayStat -> {
-                    long newUsage = statToBeRecorded.calculateTotalUsageByTheDate();
-                    long existingUsage = recordedTodayStat.calculateTotalUsageByTheDate();
+                    long currentRaw = statToBeRecorded.getLastRawValue();
+                    long lastRaw = recordedTodayStat.getLastRawValue();
+                    long accumulated = recordedTodayStat.getAccumulatedBytes();
 
-                    if (newUsage > existingUsage) {
-                        UsageRecorder.record(statToBeRecorded);
-                    }
+                    long delta = (currentRaw < lastRaw) ? currentRaw : (currentRaw - lastRaw);
+
+                    recordedTodayStat.setAccumulatedBytes(accumulated + delta);
+                    recordedTodayStat.setLastRawValue(currentRaw);
+                    UsageRecorder.record(recordedTodayStat);
                 },
                 () -> {
                     // no existing record

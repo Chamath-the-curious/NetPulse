@@ -1,40 +1,44 @@
 package domain;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class DailyStat {
     private LocalDate date;
-    private List<AdapterStat> adapterStats;
+    private long accumulatedBytes; // Persisted total usage
+    private long lastRawValue; // Value from last check
 
     public DailyStat() {}
 
-    public DailyStat(List<AdapterStat> adapterStats) {
+    public DailyStat(long lastRawValue) {
+        this.lastRawValue = lastRawValue;
         date = LocalDate.now();
-        this.adapterStats = adapterStats;
     }
 
-    public List<AdapterStat> getAdapterStats() {
-        return adapterStats;
-    }
-
-    public void setAdapterStats(List<AdapterStat> adapterStats) {
-        this.adapterStats = adapterStats;
+    public void updateAccumulatedBytes(long delta) {
+        accumulatedBytes += delta;
     }
 
     public LocalDate getDate() {
         return date;
     }
 
-    public long calculateTotalUsageByTheDate() {
-        return adapterStats.stream()
-                .map(AdapterStat::calculateTotalUsageByAdapter)
-                .mapToLong(Long::longValue)
-                .sum();
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "Date: " + date + "\n" + adapterStats.toString();
+    public long getAccumulatedBytes() {
+        return accumulatedBytes;
+    }
+
+    public void setAccumulatedBytes(long accumulatedBytes) {
+        this.accumulatedBytes = accumulatedBytes;
+    }
+
+    public long getLastRawValue() {
+        return lastRawValue;
+    }
+
+    public void setLastRawValue(long lastRawValue) {
+        this.lastRawValue = lastRawValue;
     }
 }

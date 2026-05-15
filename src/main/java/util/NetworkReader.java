@@ -48,7 +48,11 @@ public class NetworkReader {
                     new TypeReference<List<AdapterStat>>() {}
             );
 
-            return Optional.of(new DailyStat(stats));
+            long countedValue = stats.stream()
+                    .mapToLong(AdapterStat::calculateTotalUsageByAdapter)
+                    .sum();
+
+            return Optional.of(new DailyStat(countedValue));
 
         } catch (IOException e) {
             logger.log(Level.SEVERE, "IO Exception: ", e);
