@@ -78,6 +78,12 @@ Shows a summary of daily usage for all recorded dates.
 netpulse daily-usage
 ```
 
+### 4. Clear Usage History
+Permanently deletes all recorded history files.
+```bash
+netpulse clear-history
+```
+
 ## Data Storage
 
 Usage records are stored as JSON files in your home directory:
