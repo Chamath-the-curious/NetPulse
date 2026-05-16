@@ -84,6 +84,28 @@ Permanently deletes all recorded history files.
 netpulse clear-history
 ```
 
+## Automation (Recommended)
+
+To ensure accurate daily tracking, you should schedule `netpulse record` to run automatically every hour:
+
+1.  Open **Task Scheduler** (Search for it in the Start menu).
+2.  Click **Create Basic Task...** in the Actions pane on the right.
+3.  **Name:** `NetPulse Record` and click **Next**.
+4.  **Trigger:** Select **Daily** and click **Next**.
+5.  Set the start time and click **Next**.
+6.  **Action:** Select **Start a program** and click **Next**.
+7.  **Program/script:** Type `netpulse` (or the full path to `netpulse.exe` if not in your PATH).
+8.  **Add arguments:** Type `record`.
+9.  Click **Finish**.
+10. **Fine-tuning (Every Hour):**
+    *   Right-click your new task in the list and select **Properties**.
+    *   Go to the **Triggers** tab, select the trigger, and click **Edit...**.
+    *   Under **Advanced settings**, check **Repeat task every:** and select **1 hour**.
+    *   Set **for a duration of:** to **Indefinitely**.
+    *   Click **OK** on all windows.
+
+Now, NetPulse will automatically log your data usage every hour in the background!
+
 ## Data Storage
 
 Usage records are stored as JSON files in your home directory:
