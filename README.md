@@ -106,6 +106,15 @@ To ensure accurate daily tracking, you should schedule `netpulse record` to run 
 
 Now, NetPulse will automatically log your data usage every hour in the background!
 
+To avoid console window pop-ups every time the app is executed:
+
+1. Open the ***Properties*** of your NetPulse task in Task Scheduler.
+2. On the ***General*** tab, under ***Security options***, select ***Run whether user is logged on or not***.
+3. (Optional but recommended) Check ***Do not store password*** if you don't want to save your credentials (this works as
+   long as the app doesn't need to access network shares).
+4. Check ***Hidden***
+5. Click ***OK***. You will likely be prompted for your Windows password.
+
 ## Data Storage
 
 Usage records are stored as JSON files in your home directory:
